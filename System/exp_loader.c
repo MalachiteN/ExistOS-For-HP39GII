@@ -41,7 +41,7 @@ typedef struct exp_header_t
 extern const char system_build_time[];
 
 
-static TaskHandle_t exp_loader_task_handel;
+static TaskHandle_t exp_loader_task_handle;
 
 void exp_exec(void *par) {
     FILINFO finfo;
@@ -51,7 +51,7 @@ void exp_exec(void *par) {
     exp_header_t exp_h;
     static FIL *f;
     void (*app_entry)();
-    exp_loader_task_handel = xTaskGetCurrentTaskHandle();
+    exp_loader_task_handle = xTaskGetCurrentTaskHandle();
     
 
     f = pvPortMalloc(sizeof(FIL));
@@ -124,7 +124,7 @@ exp_load_exit0:
 
 void exp_app_exit()
 {
-    vTaskResume(exp_loader_task_handel);
+    vTaskResume(exp_loader_task_handle);
 }
 
 

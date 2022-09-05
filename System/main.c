@@ -211,7 +211,7 @@ void draw_main_win()
 
 /*
     obj = lv_textarea_create(lv_scr_act());
-    lv_textarea_add_text(obj, "字体：思源黑体 Light\n 字号：11\n");
+    lv_textarea_add_text(obj, "字体：思源黑体 Light\n 字号�1\n");
     lv_textarea_add_text(obj, te);
     lv_textarea_set_align(obj, LV_TEXT_ALIGN_LEFT);
     lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLL_WITH_ARROW);
@@ -494,11 +494,11 @@ static void fexplorer_file_handler(lv_event_t * e)
             extern void mjpegPlayer(void *par);
             xTaskCreate(mjpegPlayer, "mjpegPlayer", configMINIMAL_STACK_SIZE, FilePath, configMAX_PRIORITIES - 3, NULL);
         }else 
-        if((strcmp(FileExt,"bin") == 0))
-        {
-            void bin_exec(void *par);
-            xTaskCreate(bin_exec, fname, 32768, FilePath, configMAX_PRIORITIES - 3, NULL);
-        }else 
+        //if((strcmp(FileExt,"bin") == 0))
+        //{
+        //    void bin_exec(void *par);
+        //    xTaskCreate(bin_exec, fname, 32768, FilePath, configMAX_PRIORITIES - 3, NULL);
+        //}else 
         if((strcmp(FileExt,"exp") == 0))
         {
             void exp_exec(void *par);
